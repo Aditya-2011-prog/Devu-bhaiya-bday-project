@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Devu Bhaiya!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        birthday: {
+                            purple: '#4C1D95', // Deep Purple
+                            gold: '#F59E0B',   // Amber Gold
+                            blue: '#1E40AF',   // Royal Blue
+                            dark: '#111827',   // Gray 900
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Outfit"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 3s infinite',
+                        'unfold': 'unfold 1.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(245, 158, 11, 0.2)' },
+                            '50%': { boxShadow: '0 0 50px rgba(245, 158, 11, 0.6)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body
+    class="bg-birthday-dark text-white overflow-hidden m-0 p-0 h-screen w-screen flex items-center justify-center relative">
+
+    <!-- Canvas for Snow -->
+    <canvas id="snowCanvas" class="absolute top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
+
+    <!-- Main Container -->
+    <div id="app" class="relative z-10 w-full h-full flex items-center justify-center">
+
+        <!-- Opening Screen (Gift Box) -->
+        <div id="gift-container"
+            class="text-center cursor-pointer transition-all duration-700 ease-in-out hover:scale-105">
+            <div class="relative group">
+                <div
+                    class="absolute -inset-4 bg-birthday-gold/20 rounded-full blur-xl animate-pulse-glow group-hover:bg-birthday-gold/30 transition-all">
+                </div>
+                <!-- 3D Gift Box Representation via CSS/Divs -->
+                <div
+                    class="w-40 h-40 bg-birthday-purple rounded-lg relative shadow-2xl flex items-center justify-center animate-float border-2 border-birthday-gold/30">
+                    <div class="absolute w-8 h-full bg-birthday-gold/90 left-1/2 -translate-x-1/2"></div>
+                    <div class="absolute h-8 w-full bg-birthday-gold/90 top-1/2 -translate-y-1/2"></div>
+                    <div class="absolute -top-6 w-full flex justify-center">
+                        <div
+                            class="w-16 h-16 border-8 border-birthday-gold/90 rounded-full rotate-45 transform translate-y-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-12 font-sans text-birthday-gold tracking-[0.2em] uppercase text-sm animate-pulse">Tap for a
+                Surprise</p>
+        </div>
+
+
+        <!-- Cake Animation Container -->
+        <div id="cake-container"
+            class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-[40rem] z-20 pointer-events-none transition-all duration-1000 ease-in-out">
+            <svg class="w-full h-full" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Candles Flame (Hidden initially) -->
+                <g id="cake-candles" class="opacity-0 transition-opacity duration-1000">
+                    <circle cx="30" cy="25" r="3" class="fill-yellow-400 animate-twinkle" />
+                    <circle cx="50" cy="20" r="3" class="fill-red-500 animate-twinkle"
+                        style="animation-duration: 0.8s" />
+                    <circle cx="70" cy="25" r="3" class="fill-yellow-400 animate-twinkle"
+                        style="animation-duration: 1.2s" />
+                </g>
+
+                <!-- Cake Layers Path-->
+                <!-- Bottom Layer -->
+                <path id="cake-path-1" d="M15 80 L85 80 L85 100 Q50 110 15 100 Z" stroke="#F59E0B" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="opacity-0" />
+                <!-- Middle Layer -->
+                <path id="cake-path-2" d="M20 60 L80 60 L80 80 L20 80 Z" stroke="#8B5CF6" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="opacity-0" />
+                <!-- Top Layer -->
+                <path id="cake-path-3" d="M25 40 L75 40 L75 60 L25 60 Z" stroke="#F59E0B" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="opacity-0" />
+
+                <!-- Candles Sticks -->
+                <path id="cake-path-4" d="M30 40 L30 30 M50 40 L50 25 M70 40 L70 30" stroke="#EC4899" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="opacity-0" />
+            </svg>
+        </div>
+
+        <!-- Hidden Wish Content -->
+        <div id="wish-content"
+            class="hidden opacity-0 transform scale-95 transition-all duration-1000 max-w-4xl px-8 text-center relative z-30">
+            <h1 class="font-serif text-5xl md:text-7xl text-birthday-gold mb-6 leading-tight italic">
+                Happy Birthday <br /> <span
+                    class="text-birthday-purple not-italic px-4 font-bold block mt-2 text-4xl md:text-6xl">Devu
+                    Bhaiya</span>
+                <span
+                    class="text-white text-3xl block mt-2 font-sans tracking-widest uppercase opacity-80 decoration-2 underline underline-offset-4 decoration-birthday-purple">(Devansh
+                    Pratap Singh)</span>
+            </h1>
+            <p class="font-sans text-gray-300 text-lg md:text-xl leading-relaxed mb-8 font-light">
+                Wishing you a day filled with laughter, joy, and unforgettable moments.<br>
+                May this year bring you closer to all your dreams!
+            </p>
+            <button onclick="location.reload()"
+                class="px-8 py-3 border border-birthday-gold/30 rounded-full text-birthday-gold hover:bg-birthday-gold hover:text-birthday-dark transition-all duration-300 font-sans tracking-widest text-sm uppercase">Replay
+                Surprise</button>
+        </div>
+
+        <!-- Footer Credit -->
+        <div
+            class="absolute bottom-6 w-full text-center z-40 opacity-60 font-sans text-xs tracking-widest text-birthday-gold/80 uppercase">
+            Created by Aditya Singh &copy; 2025
+        </div>
+
+    </div>
+
+    <!-- Music -->
+    <audio id="bg-music" loop>
+        <source src="music/birthday_tune.mp3" type="audio/mpeg">
+        <source src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Happy_Birthday_to_You.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
