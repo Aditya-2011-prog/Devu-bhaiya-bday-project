@@ -114,8 +114,20 @@
         <div id="wish-content"
             class="hidden opacity-0 transform scale-95 transition-all duration-1000 max-w-4xl px-8 text-center relative z-30">
             <h1 class="font-serif text-5xl md:text-7xl text-birthday-gold mb-6 leading-tight italic">
-                Happy Birthday <br /> <span
-                    class="text-birthday-purple not-italic px-4 font-bold block mt-2 text-4xl md:text-6xl">Devu
+                <svg class="w-full h-20 md:h-32 -mb-4 overflow-visible block pointer-events-none mx-auto"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FCD34D;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <text x="50%" y="80%" text-anchor="middle" class="font-serif italic"
+                        style="font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 4.5rem); fill: transparent; stroke: #F59E0B; stroke-width: 1.5px; stroke-dasharray: 3500; stroke-dashoffset: 3500; animation: drawStroke 3s ease-out forwards, fillFade 1s ease-in 2.2s forwards;">
+                        Happy Birthday
+                    </text>
+                </svg>
+                <span class="text-birthday-purple not-italic px-4 font-bold block mt-2 text-4xl md:text-6xl">Devu
                     Bhaiya</span>
                 <span
                     class="text-white text-3xl block mt-2 font-sans tracking-widest uppercase opacity-80 decoration-2 underline underline-offset-4 decoration-birthday-purple">(Devansh

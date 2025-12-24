@@ -84,3 +84,34 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+/* Happy Birthday Text Animation */
+.draw-text-stroke {
+    fill: transparent;
+    stroke: #F59E0B;
+    stroke-width: 1.5px;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawStroke 3.5s ease-out forwards;
+}
+
+.fill-text-fade {
+    animation: fillFade 1.5s ease-in 2.5s forwards;
+    opacity: 0;
+    /* logic handled by fill opacity usually, but here helper */
+}
+
+@keyframes drawStroke {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fillFade {
+    to {
+        fill: #F59E0B;
+        fill-opacity: 1;
+        stroke: transparent;
+        /* Optional: hide stroke after fill */
+    }
+}
